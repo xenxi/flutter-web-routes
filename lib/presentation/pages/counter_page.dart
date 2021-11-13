@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class CounterPage extends StatefulWidget {
-  static String route = 'counter';
+  static String route = '/counter';
   const CounterPage({Key? key}) : super(key: key);
 
   @override
