@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_web_routes_spike/presentation/shared/custom_circle_button.dart';
 
 class CounterPage extends StatefulWidget {
   static String route = '/counter';
@@ -26,14 +27,20 @@ class _CounterPageState extends State<CounterPage> {
           const SizedBox(
             height: 20,
           ),
-          ElevatedButton(
-            style: ElevatedButton.styleFrom(
-                shape: const CircleBorder(), padding: const EdgeInsets.all(30)),
-            child: const Icon(
-              Icons.add,
-              size: 35,
-            ),
-            onPressed: () => setState(() => numOfClicks++),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              CustomCircleButton(
+                iconData: Icons.remove,
+                color: Colors.redAccent,
+                onPressed: () => setState(() => numOfClicks--),
+              ),
+              CustomCircleButton(
+                iconData: Icons.add,
+                color: Colors.greenAccent,
+                onPressed: () => setState(() => numOfClicks++),
+              ),
+            ],
           )
         ],
       ),
