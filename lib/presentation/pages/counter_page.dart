@@ -33,25 +33,31 @@ class _CounterPageState extends State<CounterPage> {
   }
 
   Widget _buildText(BuildContext context) => Center(
-        child: Text(
-          'Counter: $numOfClicks',
-          style: Theme.of(context).textTheme.headline2,
+        child: FittedBox(
+          fit: BoxFit.contain,
+          child: Text(
+            'Counter: $numOfClicks',
+            style: Theme.of(context).textTheme.headline2,
+          ),
         ),
       );
 
-  Widget _buildActions() => Row(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          CustomCircleButton(
-            iconData: Icons.remove,
-            color: Colors.redAccent,
-            onPressed: () => setState(() => numOfClicks--),
-          ),
-          CustomCircleButton(
-            iconData: Icons.add,
-            color: Colors.greenAccent,
-            onPressed: () => setState(() => numOfClicks++),
-          ),
-        ],
+  Widget _buildActions() => FittedBox(
+        fit: BoxFit.cover,
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            CustomCircleButton(
+              iconData: Icons.remove,
+              color: Colors.redAccent,
+              onPressed: () => setState(() => numOfClicks--),
+            ),
+            CustomCircleButton(
+              iconData: Icons.add,
+              color: Colors.greenAccent,
+              onPressed: () => setState(() => numOfClicks++),
+            ),
+          ],
+        ),
       );
 }
