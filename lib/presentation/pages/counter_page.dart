@@ -1,9 +1,16 @@
 import 'package:flutter/material.dart';
 
-class CounterPage extends StatelessWidget {
+class CounterPage extends StatefulWidget {
   static String route = 'counter';
   const CounterPage({Key? key}) : super(key: key);
-  final numOfClicks = 0;
+
+  @override
+  State<CounterPage> createState() => _CounterPageState();
+}
+
+class _CounterPageState extends State<CounterPage> {
+  int numOfClicks = 0;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -26,7 +33,7 @@ class CounterPage extends StatelessWidget {
               Icons.add,
               size: 35,
             ),
-            onPressed: () {},
+            onPressed: () => setState(() => numOfClicks++),
           )
         ],
       ),
