@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_web_routes_spike/presentation/shared/custom_navbar_menu.dart';
 import 'package:flutter_web_routes_spike/presentation/shared/custom_circle_button.dart';
 
 class CounterPage extends StatefulWidget {
@@ -18,6 +19,8 @@ class _CounterPageState extends State<CounterPage> {
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
+          const CustumNavbarMenu(),
+          const Spacer(),
           Center(
             child: Text(
               'Counter: $numOfClicks',
@@ -41,7 +44,8 @@ class _CounterPageState extends State<CounterPage> {
                 onPressed: () => setState(() => numOfClicks++),
               ),
             ],
-          )
+          ),
+          const Spacer(),
         ],
       ),
     );
