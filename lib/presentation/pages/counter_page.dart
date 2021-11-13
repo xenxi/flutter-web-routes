@@ -21,33 +21,37 @@ class _CounterPageState extends State<CounterPage> {
         children: [
           const CustumNavbarMenu(),
           const Spacer(),
-          Center(
-            child: Text(
-              'Counter: $numOfClicks',
-              style: Theme.of(context).textTheme.headline2,
-            ),
-          ),
+          _buildText(context),
           const SizedBox(
             height: 20,
           ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              CustomCircleButton(
-                iconData: Icons.remove,
-                color: Colors.redAccent,
-                onPressed: () => setState(() => numOfClicks--),
-              ),
-              CustomCircleButton(
-                iconData: Icons.add,
-                color: Colors.greenAccent,
-                onPressed: () => setState(() => numOfClicks++),
-              ),
-            ],
-          ),
+          _buildActions(),
           const Spacer(),
         ],
       ),
     );
   }
+
+  Widget _buildText(BuildContext context) => Center(
+        child: Text(
+          'Counter: $numOfClicks',
+          style: Theme.of(context).textTheme.headline2,
+        ),
+      );
+
+  Widget _buildActions() => Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          CustomCircleButton(
+            iconData: Icons.remove,
+            color: Colors.redAccent,
+            onPressed: () => setState(() => numOfClicks--),
+          ),
+          CustomCircleButton(
+            iconData: Icons.add,
+            color: Colors.greenAccent,
+            onPressed: () => setState(() => numOfClicks++),
+          ),
+        ],
+      );
 }
