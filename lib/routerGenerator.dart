@@ -11,9 +11,14 @@ class RouteGenerator {
   };
 
   Route<dynamic>? generateRoute(RouteSettings settings) {
-    final page = _routesMap[settings.name]?.call();
+    final searchPage =
+        _routesMap[settings.name]?.call() ?? const NotFoundPage();
 
-    return MaterialPageRoute(
-        builder: (context) => page ?? const NotFoundPage());
+    return PageRouteBuilder(
+      pageBuilder: (context, animation, secondaryAnimation) => FadeTransition(
+        opacity: animation,
+        child: searchPage,
+      ),
+    );
   }
 }
