@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_web_routes_spike/presentation/pages/counter_page.dart';
 
+import 'presentation/pages/not_found_page.dart';
 import 'presentation/pages/other_counter_page.dart';
 
 class RouteGenerator {
@@ -12,6 +13,7 @@ class RouteGenerator {
   Route<dynamic>? generateRoute(RouteSettings settings) {
     final page = _routesMap[settings.name]?.call();
 
-    return MaterialPageRoute(builder: (context) => page ?? const CounterPage());
+    return MaterialPageRoute(
+        builder: (context) => page ?? const NotFoundPage());
   }
 }
