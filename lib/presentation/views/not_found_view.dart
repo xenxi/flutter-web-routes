@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_web_routes_spike/presentation/pages/statefull_counter_page.dart';
 import 'package:flutter_web_routes_spike/presentation/shared/custom_elevated_button.dart';
+import 'package:flutter_web_routes_spike/presentation/views/statefull_counter_view.dart';
 
 class NotFoundView extends StatelessWidget {
   const NotFoundView({Key? key}) : super(key: key);
@@ -26,7 +26,7 @@ class NotFoundView extends StatelessWidget {
         CustomTextButton(
             text: 'Go home',
             onPressed: () =>
-                Navigator.of(context).pushNamed(StatefullCounterPage.route))
+                Navigator.of(context).pushNamed(StatefullCounterView.route))
       ],
     );
   }
