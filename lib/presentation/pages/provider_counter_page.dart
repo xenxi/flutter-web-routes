@@ -2,15 +2,15 @@ import 'package:flutter/material.dart';
 import 'package:flutter_web_routes_spike/presentation/shared/custom_navbar_menu.dart';
 import 'package:flutter_web_routes_spike/presentation/shared/custom_circle_button.dart';
 
-class CounterPage extends StatefulWidget {
-  static String route = '/counter';
-  const CounterPage({Key? key}) : super(key: key);
+class ProviderCounterPage extends StatefulWidget {
+  static String route = '/provider-counter';
+  const ProviderCounterPage({Key? key}) : super(key: key);
 
   @override
-  State<CounterPage> createState() => _CounterPageState();
+  State<ProviderCounterPage> createState() => _ProviderCounterPageState();
 }
 
-class _CounterPageState extends State<CounterPage> {
+class _ProviderCounterPageState extends State<ProviderCounterPage> {
   int numOfClicks = 0;
 
   @override
@@ -49,12 +49,12 @@ class _CounterPageState extends State<CounterPage> {
           children: [
             CustomCircleButton(
               iconData: Icons.remove,
-              color: Colors.redAccent,
+              color: Colors.red,
               onPressed: () => setState(() => numOfClicks--),
             ),
             CustomCircleButton(
               iconData: Icons.add,
-              color: Colors.greenAccent,
+              color: Colors.green,
               onPressed: () => setState(() => numOfClicks++),
             ),
           ],

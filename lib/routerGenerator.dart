@@ -1,14 +1,13 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
-import 'package:flutter_web_routes_spike/presentation/pages/counter_page.dart';
-
+import 'package:flutter_web_routes_spike/presentation/pages/statefull_counter_page.dart';
 import 'presentation/pages/not_found_page.dart';
-import 'presentation/pages/other_counter_page.dart';
+import 'presentation/pages/provider_counter_page.dart';
 
 class RouteGenerator {
   static final Map<String, Widget Function()> _routesMap = {
-    CounterPage.route: () => const CounterPage(),
-    OtherCounterPage.route: () => const OtherCounterPage(),
+    StatefullCounterPage.route: () => const StatefullCounterPage(),
+    ProviderCounterPage.route: () => const ProviderCounterPage(),
   };
 
   Route<dynamic>? generateRoute(RouteSettings settings) {
