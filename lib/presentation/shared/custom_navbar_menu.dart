@@ -11,11 +11,11 @@ class CustumNavbarMenu extends StatelessWidget {
     return Row(
       children: [
         CustomTextButton(
-            text: 'Page 1',
+            text: 'Counter with statefull',
             onPressed: () =>
                 Navigator.of(context).pushNamed(StatefullCounterPage.route)),
         CustomTextButton(
-            text: 'Page 2',
+            text: 'Counter with provider',
             onPressed: () =>
                 Navigator.of(context).pushNamed(ProviderCounterPage.route)),
         CustomTextButton(
