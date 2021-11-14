@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_web_routes_spike/presentation/layouts/main_page_layout.dart';
 
 import 'package:flutter_web_routes_spike/presentation/pages/statefull_counter_page.dart';
 
@@ -18,6 +19,7 @@ class RouterApp extends StatelessWidget {
       title: 'Router Spike',
       initialRoute: StatefullCounterPage.route,
       onGenerateRoute: router.generateRoute,
+      builder: (context, child) => MainPageLayout(child: child ?? Container()),
     );
   }
 }
