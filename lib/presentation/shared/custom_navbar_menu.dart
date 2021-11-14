@@ -8,6 +8,7 @@ class CustumNavbarMenu extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    print('create navbar');
     return Row(
       children: [
         CustomTextButton(
