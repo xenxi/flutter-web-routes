@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_web_routes_spike/presentation/core/injections/injections.dart';
+import 'package:flutter_web_routes_spike/presentation/core/routes/custom_navigator.dart';
 import 'package:flutter_web_routes_spike/presentation/layouts/main_page_layout.dart';
 
 import 'package:flutter_web_routes_spike/presentation/views/statefull_counter_view.dart';
 
-import '../router_generator.dart';
+import 'core/routes/router_generator.dart';
 
 class RouterApp extends StatelessWidget {
   const RouterApp({
@@ -15,11 +17,16 @@ class RouterApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final navigator = getIt<CustomNavigator>();
     return MaterialApp(
       title: 'Router Spike',
       initialRoute: StatefullCounterView.route,
       onGenerateRoute: router.generateRoute,
-      builder: (context, child) => MainPageLayout(child: child ?? Container()),
+      navigatorKey: navigator.key,
+      builder: (context, child) => MainPageLayout(
+        child: child ?? Container(),
+        navigator: navigator,
+      ),
     );
   }
 }
