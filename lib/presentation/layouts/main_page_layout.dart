@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_web_routes_spike/domain/i_navigator.dart';
+import 'package:flutter_web_routes_spike/presentation/core/routes/i_navigator.dart';
 import 'package:flutter_web_routes_spike/presentation/shared/custom_navbar_menu.dart';
 
 class MainPageLayout extends StatelessWidget {
