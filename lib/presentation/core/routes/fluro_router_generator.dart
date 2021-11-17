@@ -24,10 +24,12 @@ class FluroRouteGenerator implements IRouteGenerator {
   void _configureRoutes() {
     _defineRoutes();
 
-    _router.notFoundHandler = Handler(
-      handlerFunc: (context, parameters) => const NotFoundView(),
-    );
+    _defineNotFoundRoute();
   }
+
+  void _defineNotFoundRoute() => _router.notFoundHandler = Handler(
+        handlerFunc: (context, parameters) => const NotFoundView(),
+      );
 
   void _defineRoutes() => _routesMap.forEach((path, buildView) {
         _router.define(
