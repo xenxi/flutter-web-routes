@@ -22,23 +22,25 @@ class FluroRouteGenerator implements IRouteGenerator {
   final FluroRouter _router = FluroRouter();
 
   void _configureRoutes() {
-    _routesMap.forEach((path, buildView) {
-      _router.define(
-        path,
-        handler: Handler(
-          handlerFunc: (context, parameters) {
-            return buildView();
-          },
-        ),
-        transitionType: TransitionType.custom,
-        transitionBuilder: _transitionBuilder,
-      );
-    });
+    _defineRoutes();
 
     _router.notFoundHandler = Handler(
       handlerFunc: (context, parameters) => const NotFoundView(),
     );
   }
+
+  void _defineRoutes() => _routesMap.forEach((path, buildView) {
+        _router.define(
+          path,
+          handler: Handler(
+            handlerFunc: (context, parameters) {
+              return buildView();
+            },
+          ),
+          transitionType: TransitionType.custom,
+          transitionBuilder: _transitionBuilder,
+        );
+      });
 
   Widget _transitionBuilder(BuildContext context, Animation<double> animation,
       Animation<double> secondaryAnimation, Widget child) {
