@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_web_routes_spike/presentation/core/routes/i_navigator.dart';
+import 'package:flutter_web_routes_spike/presentation/core/routes/navigators/i_navigator.dart';
 
 import 'package:flutter_web_routes_spike/presentation/shared/custom_elevated_button.dart';
 import 'package:flutter_web_routes_spike/presentation/views/provider_counter_view.dart';

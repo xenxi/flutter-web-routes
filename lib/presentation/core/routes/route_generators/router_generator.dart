@@ -1,9 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
-import 'package:flutter_web_routes_spike/presentation/core/routes/i_route_generator.dart';
-import '../../views/not_found_view.dart';
-import '../../views/provider_counter_view.dart';
-import '../../views/statefull_counter_view.dart';
+import 'package:flutter_web_routes_spike/presentation/core/routes/route_generators/i_route_generator.dart';
+import '../../../views/not_found_view.dart';
+import '../../../views/provider_counter_view.dart';
+import '../../../views/statefull_counter_view.dart';
 
 class RouteGenerator implements IRouteGenerator {
   static final Map<String, Widget Function()> _routesMap = {

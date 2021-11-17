@@ -8,7 +8,7 @@ import 'package:flutter/cupertino.dart' as _i3;
 import 'package:get_it/get_it.dart' as _i1;
 import 'package:injectable/injectable.dart' as _i2;
 
-import '../routes/custom_navigator.dart' as _i4;
+import '../routes/navigators/custom_navigator.dart' as _i4;
 import '../routes/register_module.dart'
     as _i5; // ignore_for_file: unnecessary_lambdas
 

@@ -1,5 +1,5 @@
 import 'package:flutter/cupertino.dart';
-import 'package:flutter_web_routes_spike/presentation/core/routes/i_navigator.dart';
+import 'package:flutter_web_routes_spike/presentation/core/routes/navigators/i_navigator.dart';
 import 'package:injectable/injectable.dart';
 
 @injectable

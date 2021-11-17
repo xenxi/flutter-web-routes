@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_web_routes_spike/presentation/core/injections/injections.dart';
-import 'package:flutter_web_routes_spike/presentation/core/routes/custom_navigator.dart';
+import 'package:flutter_web_routes_spike/presentation/core/routes/navigators/custom_navigator.dart';
 import 'package:flutter_web_routes_spike/presentation/layouts/main_page_layout.dart';
 
 import 'package:flutter_web_routes_spike/presentation/views/statefull_counter_view.dart';
 
-import 'core/routes/i_route_generator.dart';
+import 'core/routes/route_generators/i_route_generator.dart';
 
 class RouterApp extends StatelessWidget {
   const RouterApp({
