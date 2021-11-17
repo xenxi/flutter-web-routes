@@ -9,10 +9,17 @@ import 'package:flutter_web_routes_spike/presentation/views/statefull_counter_vi
 import 'i_route_generator.dart';
 
 class FluroRouteGenerator implements IRouteGenerator {
-  static final Map<String, Widget Function()> _routesMap = {
-    '/': () => const StatefullCounterView(),
-    StatefullCounterView.route: () => const StatefullCounterView(),
-    ProviderCounterView.route: () => const ProviderCounterView(),
+  static final Map<String,
+      Widget Function(Map<String, List<String>> parameters)> _routesMap = {
+    '/': (_) => const StatefullCounterView(),
+    StatefullCounterView.route: (param) => const StatefullCounterView(),
+    '${StatefullCounterView.route}/:numOfClicks': (param) {
+      final numOfClicks = int.tryParse(param['numOfClicks']?[0] ?? '');
+      return StatefullCounterView(
+        initialNumOfClicks: numOfClicks,
+      );
+    },
+    ProviderCounterView.route: (param) => const ProviderCounterView(),
   };
 
   FluroRouteGenerator() {
@@ -36,7 +43,7 @@ class FluroRouteGenerator implements IRouteGenerator {
           path,
           handler: Handler(
             handlerFunc: (context, parameters) {
-              return buildView();
+              return buildView(parameters);
             },
           ),
           transitionType: TransitionType.custom,

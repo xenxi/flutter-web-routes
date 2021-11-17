@@ -1,16 +1,26 @@
 import 'package:flutter/material.dart';
+
 import 'package:flutter_web_routes_spike/presentation/shared/custom_circle_button.dart';
 
 class StatefullCounterView extends StatefulWidget {
+  final int? initialNumOfClicks;
   static String route = '/statefull-counter';
-  const StatefullCounterView({Key? key}) : super(key: key);
+  const StatefullCounterView({
+    Key? key,
+    this.initialNumOfClicks,
+  }) : super(key: key);
 
   @override
   State<StatefullCounterView> createState() => _StatefullCounterViewState();
 }
 
 class _StatefullCounterViewState extends State<StatefullCounterView> {
-  int numOfClicks = 0;
+  late int numOfClicks;
+  @override
+  void initState() {
+    super.initState();
+    numOfClicks = widget.initialNumOfClicks ?? 0;
+  }
 
   @override
   Widget build(BuildContext context) {
