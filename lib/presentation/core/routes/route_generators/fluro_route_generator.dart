@@ -1,32 +1,13 @@
 import 'package:fluro/fluro.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
-import 'package:flutter_web_routes_spike/presentation/views/greet_view.dart';
 import 'package:flutter_web_routes_spike/presentation/views/not_found_view.dart';
-
-import 'package:flutter_web_routes_spike/presentation/views/provider_counter_view.dart';
-import 'package:flutter_web_routes_spike/presentation/views/statefull_counter_view.dart';
 
 import '../query_params.dart';
 import 'i_route_generator.dart';
+import 'route_map.dart';
 
 class FluroRouteGenerator implements IRouteGenerator {
-  static final Map<String, Widget Function(QueryParams parameters)> _routesMap =
-      {
-    '/': (_) => const StatefullCounterView(),
-    StatefullCounterView.route: (param) => const StatefullCounterView(),
-    '${StatefullCounterView.route}/:numOfClicks': (param) =>
-        StatefullCounterView(
-          initialNumOfClicks: param.getInt('numOfClicks'),
-        ),
-    ProviderCounterView.route: (param) =>
-        ProviderCounterView(initialNumOfClicks: param.getInt('numOfClicks')),
-    '${GreetView.route}/:name': (param) => GreetView(
-          name: param.getString('name')!,
-          message: param.getString('message'),
-        ),
-  };
-
   FluroRouteGenerator() {
     _configureRoutes();
   }
@@ -43,7 +24,7 @@ class FluroRouteGenerator implements IRouteGenerator {
         handlerFunc: (context, parameters) => const NotFoundView(),
       );
 
-  void _defineRoutes() => _routesMap.forEach((path, buildView) {
+  void _defineRoutes() => RouteMap.map.forEach((path, buildView) {
         _router.define(
           path,
           handler: Handler(
