@@ -5,12 +5,15 @@ import 'package:provider/provider.dart';
 
 class ProviderCounterView extends StatelessWidget {
   static String route = 'provider-couenter';
-  const ProviderCounterView({Key? key}) : super(key: key);
+  final int? initialNumOfClicks;
+  const ProviderCounterView({Key? key, this.initialNumOfClicks})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return ChangeNotifierProvider(
-      create: (context) => CounterProvider(),
+      create: (context) =>
+          CounterProvider(initialCounter: initialNumOfClicks ?? 0),
       child: const _BuildPageBody(),
     );
   }

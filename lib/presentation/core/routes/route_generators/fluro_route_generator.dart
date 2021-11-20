@@ -18,7 +18,8 @@ class FluroRouteGenerator implements IRouteGenerator {
         StatefullCounterView(
           initialNumOfClicks: param.getInt('numOfClicks'),
         ),
-    ProviderCounterView.route: (param) => const ProviderCounterView(),
+    ProviderCounterView.route: (param) =>
+        ProviderCounterView(initialNumOfClicks: param.getInt('numOfClicks')),
   };
 
   FluroRouteGenerator() {
