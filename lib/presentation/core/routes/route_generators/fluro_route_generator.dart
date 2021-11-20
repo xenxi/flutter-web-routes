@@ -6,19 +6,18 @@ import 'package:flutter_web_routes_spike/presentation/views/not_found_view.dart'
 import 'package:flutter_web_routes_spike/presentation/views/provider_counter_view.dart';
 import 'package:flutter_web_routes_spike/presentation/views/statefull_counter_view.dart';
 
+import '../query_params.dart';
 import 'i_route_generator.dart';
 
 class FluroRouteGenerator implements IRouteGenerator {
-  static final Map<String,
-      Widget Function(Map<String, List<String>> parameters)> _routesMap = {
+  static final Map<String, Widget Function(QueryParams parameters)> _routesMap =
+      {
     '/': (_) => const StatefullCounterView(),
     StatefullCounterView.route: (param) => const StatefullCounterView(),
-    '${StatefullCounterView.route}/:numOfClicks': (param) {
-      final numOfClicks = int.tryParse(param['numOfClicks']?[0] ?? '');
-      return StatefullCounterView(
-        initialNumOfClicks: numOfClicks,
-      );
-    },
+    '${StatefullCounterView.route}/:numOfClicks': (param) =>
+        StatefullCounterView(
+          initialNumOfClicks: param.getInt('numOfClicks'),
+        ),
     ProviderCounterView.route: (param) => const ProviderCounterView(),
   };
 
@@ -43,7 +42,7 @@ class FluroRouteGenerator implements IRouteGenerator {
           path,
           handler: Handler(
             handlerFunc: (context, parameters) {
-              return buildView(parameters);
+              return buildView(QueryParams(parameters));
             },
           ),
           transitionType: TransitionType.custom,
