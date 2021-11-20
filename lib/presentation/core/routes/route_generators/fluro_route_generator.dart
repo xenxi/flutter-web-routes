@@ -1,6 +1,7 @@
 import 'package:fluro/fluro.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
+import 'package:flutter_web_routes_spike/presentation/views/greet_view.dart';
 import 'package:flutter_web_routes_spike/presentation/views/not_found_view.dart';
 
 import 'package:flutter_web_routes_spike/presentation/views/provider_counter_view.dart';
@@ -20,6 +21,10 @@ class FluroRouteGenerator implements IRouteGenerator {
         ),
     ProviderCounterView.route: (param) =>
         ProviderCounterView(initialNumOfClicks: param.getInt('numOfClicks')),
+    '${GreetView.route}/:name': (param) => GreetView(
+          name: param.getString('name')!,
+          message: param.getString('message'),
+        ),
   };
 
   FluroRouteGenerator() {

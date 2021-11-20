@@ -4,7 +4,7 @@ import 'package:flutter_web_routes_spike/presentation/shared/custom_circle_butto
 import 'package:provider/provider.dart';
 
 class ProviderCounterView extends StatelessWidget {
-  static String route = 'provider-couenter';
+  static String route = 'provider-counter';
   final int? initialNumOfClicks;
   const ProviderCounterView({Key? key, this.initialNumOfClicks})
       : super(key: key);

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_web_routes_spike/presentation/core/routes/navigators/i_navigator.dart';
 
 import 'package:flutter_web_routes_spike/presentation/shared/custom_elevated_button.dart';
+import 'package:flutter_web_routes_spike/presentation/views/greet_view.dart';
 import 'package:flutter_web_routes_spike/presentation/views/provider_counter_view.dart';
 import 'package:flutter_web_routes_spike/presentation/views/statefull_counter_view.dart';
 
@@ -25,6 +26,10 @@ class CustumNavbarMenu extends StatelessWidget {
         CustomTextButton(
             text: 'Non-existent page',
             onPressed: () => navigator.navigateTo('asdfsa')),
+        CustomTextButton(
+            text: 'Say hello to Pepe',
+            onPressed: () => navigator.navigateTo(
+                '${GreetView.route}/Pepe?message=my name is Inigo Montoya')),
       ],
     );
   }
